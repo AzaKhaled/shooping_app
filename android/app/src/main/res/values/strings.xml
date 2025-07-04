@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">shopping</string>
+ 
+<string name="facebook_app_id">1967930554038392</string>
+<string name="fb_login_protocol_scheme">fb1967930554038392</string>
+<string name="facebook_client_token">bc0738ecec26fa750d2cfbfee72b686a</string>
+
+
+</resources>
