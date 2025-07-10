@@ -13,7 +13,9 @@ dependencies:
   cloud_firestore: ^5.6.9
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
+  dio: ^5.8.0+1
   dots_indicator: ^4.0.1
+  equatable: ^2.0.7
   firebase_auth: ^5.6.1
   firebase_core: ^3.15.0
   flutter:
@@ -24,13 +26,13 @@ dependencies:
     sdk: flutter
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.2.0
-  flutter_svg_provider: ^1.0.7
+  fluttertoast: ^8.2.12
   get_it: ^8.0.3
   google_sign_in: ^6.3.0
   modal_progress_hud_nsn: ^0.5.1
   shared_preferences: ^2.5.3
   smooth_page_indicator: ^1.2.1
-  svg_flutter: ^0.0.1
+  
 
 dev_dependencies:
   flutter_launcher_icons: "^0.14.4"
@@ -66,8 +68,11 @@ flutter_launcher_icons:
     image_path: "assets/images/icons.png"
     background_color: "#ffffff"
     theme_color: "#4CAF50"
-flutter_assets:
-  assets_path: assets/images/
-  output_path: lib/core/utils
-  filename: assets.dart
-  field_prefix: null
+flutter_intl:
+  enabled: true
+
+# flutter_assets:
+#   assets_path: assets/images/
+#   output_path: lib/core/utils
+#   filename: assets.dart
+#   field_prefix: null

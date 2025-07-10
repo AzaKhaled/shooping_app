@@ -29,7 +29,7 @@ class _PasswordFieldState extends State<PasswordField> {
       obscureText: obscureText,
       onSaved: widget.onSaved,
       validator: widget.validator,
-      preffixIcon: const Icon(Icons.lock_outline),
+      preffixIcon:  Icon(Icons.lock_outline ,color: Theme.of(context).iconTheme.color,),
       suffixIcon: GestureDetector(
         onTap: () {
           setState(() {
@@ -38,7 +38,7 @@ class _PasswordFieldState extends State<PasswordField> {
         },
         child: Icon(
           obscureText ? Icons.remove_red_eye : Icons.visibility_off,
-          color: const Color(0xffC9CECF),
+          color: Theme.of(context).iconTheme.color,
         ),
       ),
       hintText: widget.hintText,

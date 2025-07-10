@@ -15,7 +15,7 @@ class SigninCubit extends Cubit<SigninState> {
     emit(SigninLoading());
     var result = await authRepo.signinWithEmailAndPassword(email, password);
     result.fold((Failure failure) {
-      log(' Signin Error: ${failure.message}');
+      // log(' Signin Error: ${failure.message}');
       emit(SigninFailure(message: failure.message));
     }, (UserEntity userEntity) => emit(SigninSuccess(userEntity: userEntity)));
   }
@@ -24,7 +24,7 @@ class SigninCubit extends Cubit<SigninState> {
     emit(SigninLoading());
     var result = await authRepo.signinWithGoogle();
     result.fold((Failure failure) {
-      log(' Google Signin Error: ${failure.message}');
+      // log(' Google Signin Error: ${failure.message}');
       emit(SigninFailure(message: failure.message));
     }, (UserEntity userEntity) => emit(SigninSuccess(userEntity: userEntity)));
   }
@@ -33,7 +33,7 @@ class SigninCubit extends Cubit<SigninState> {
     emit(SigninLoading());
     var result = await authRepo.signinWithFacebook();
     result.fold((Failure failure) {
-      log('Facebook Signin Error: ${failure.message}');
+      // log('Facebook Signin Error: ${failure.message}');
       emit(SigninFailure(message: failure.message));
     }, (UserEntity userEntity) => emit(SigninSuccess(userEntity: userEntity)));
   }

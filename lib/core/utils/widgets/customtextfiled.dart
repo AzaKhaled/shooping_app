@@ -8,6 +8,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.textInputType,
     this.suffixIcon,
     this.onSaved,
+    this.onChanged,
     this.obscureText = false,
     this.preffixIcon,
     this.controller,
@@ -19,44 +20,54 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Widget? preffixIcon;
   final void Function(String?)? onSaved;
+  final Function(String)? onChanged;
   final bool obscureText;
-
   final TextEditingController? controller;
   final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return TextFormField(
       controller: controller,
       obscureText: obscureText,
       onSaved: onSaved,
-      validator: validator ?? (value) {
-        if (value == null || value.isEmpty) {
-          return 'required';
-        }
-        return null;
-      },
+      onChanged: onChanged,
+      validator:
+          validator ??
+          (value) {
+            if (value == null || value.isEmpty) {
+              return 'required';
+            }
+            return null;
+          },
       keyboardType: textInputType,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         prefixIcon: preffixIcon,
-        hintStyle: TextStyles.montserrat500_12_grey.copyWith(
-          color: const Color(0xFF949D9E),
-        ),
         hintText: hintText,
+        hintStyle: TextStyles.montserrat500_12_grey.copyWith(
+          color: theme.hintColor,
+        ),
         filled: true,
-        fillColor: const Color(0xFFF9FAFA),
-        border: buildBorder(),
-        enabledBorder: buildBorder(),
-        focusedBorder: buildBorder(),
+        fillColor:
+            theme.inputDecorationTheme.fillColor ??
+            theme.colorScheme.surface.withOpacity(0.05),
+        border: buildBorder(theme),
+        enabledBorder: buildBorder(theme),
+        focusedBorder: buildBorder(theme, isFocused: true),
       ),
     );
   }
 
-  OutlineInputBorder buildBorder() {
+  OutlineInputBorder buildBorder(ThemeData theme, {bool isFocused = false}) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(16),
-      borderSide: const BorderSide(width: 1, color: Color(0xFFE6E9E9)),
+      borderSide: BorderSide(
+        width: 1,
+        color: isFocused ? theme.colorScheme.primary : theme.dividerColor,
+      ),
     );
   }
 }

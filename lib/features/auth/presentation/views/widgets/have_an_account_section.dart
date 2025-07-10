@@ -14,15 +14,17 @@ class HaveAnAccountSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme.bodyMedium;
+
     return Wrap(
       children: [
-        Text(leadingText, style: const TextStyle(color: Colors.black)),
+        Text(leadingText, style: textTheme),
         GestureDetector(
           onTap: onTap,
           child: Text(
             actionText,
-            style: const TextStyle(
-              color: Color(0xffF83758),
+            style: textTheme?.copyWith(
+              color: const Color(0xffF83758),
               fontWeight: FontWeight.bold,
             ),
           ),

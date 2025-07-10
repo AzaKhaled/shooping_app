@@ -24,14 +24,13 @@ class Navbar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // زر Prev أو فراغ
           currentPage > 0
               ? TextButton(
                   onPressed: onPrev,
                   child: Text(
                     'Prev',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 14,
                       fontWeight: FontWeight.w500,
                       color: Colors.grey,
                     ),
@@ -57,7 +56,7 @@ class Navbar extends StatelessWidget {
             child: Text(
               currentPage == totalPages - 1 ? 'Get Started' : 'Next',
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 14,
                 fontWeight: FontWeight.w400,
                 color: Colors.redAccent,
               ),

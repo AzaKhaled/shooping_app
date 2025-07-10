@@ -6,14 +6,14 @@ class PublicOffireSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RichText(
-      text: const TextSpan(
-        style: TextStyle(color: Colors.black),
-        children: [
+      text: TextSpan(
+        style: Theme.of(context).textTheme.bodyMedium, // يدعم الثيم
+        children: const [
           TextSpan(text: 'By clicking the '),
           TextSpan(
             text: 'Register',
             style: TextStyle(
-              color: Color(0xffF83758),
+              color: Color(0xffF83758), // تمييز الكلمة
               fontWeight: FontWeight.bold,
             ),
           ),

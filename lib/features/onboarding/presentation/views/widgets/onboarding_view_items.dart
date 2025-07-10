@@ -31,7 +31,10 @@ class OnboardingViewItems extends StatelessWidget {
             Text(
               title,
               textAlign: TextAlign.center,
-              style: TextStyles.montserrat800_24,
+              style: TextStyles.montserrat800_24.copyWith(
+  color: Theme.of(context).textTheme.bodyLarge!.color,
+),
+
             ),
             SizedBox(height: 16.h),
             Text(

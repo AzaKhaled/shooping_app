@@ -1,32 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_hub/core/utils/app_images.dart';
-import 'package:fruits_hub/core/utils/app_text_styles.dart';
-import 'package:fruits_hub/features/auth/presentation/views/singup_view.dart';
+import 'package:fruits_hub/features/auth/presentation/views/sigin_view.dart';
 import 'package:fruits_hub/features/onboarding/presentation/views/widgets/navbar.dart';
 import 'package:fruits_hub/features/onboarding/presentation/views/widgets/onboarding_view_items.dart';
+
 class OnboardingViewBody extends StatefulWidget {
   const OnboardingViewBody({super.key});
+
   @override
   State<OnboardingViewBody> createState() => _OnboardingViewBodyState();
 }
+
 class _OnboardingViewBodyState extends State<OnboardingViewBody> {
   final PageController _controller = PageController();
   int _currentPage = 0;
   final int _totalPages = 3;
+
+  void _goToSignup(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => const SiginView()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SingUpView()),
-            );
-          },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [Text("Skip", style: TextStyles.montserrat500_12_grey)],
+        backgroundColor: theme.scaffoldBackgroundColor,
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        title: Align(
+          alignment: Alignment.centerRight,
+          child: GestureDetector(
+            onTap: () => _goToSignup(context),
+            child: Text(
+              "Skip",
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: Colors.grey,
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+              ),
+            ),
           ),
         ),
       ),
@@ -40,7 +57,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                   _currentPage = index;
                 });
               },
-              children: [
+              children: const [
                 OnboardingViewItems(
                   imagePath: Assets.fashionShop,
                   title: 'Choose Products',
@@ -57,12 +74,11 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                   imagePath: Assets.shoppingBag,
                   title: 'Get Your Order',
                   subtitle:
-                      'You can organize your daily tasks by adding your tasks into separate categories',
+                      'You can organize your daily tasks by adding your tasks into separate categories.',
                 ),
               ],
             ),
           ),
-          // Buttons
           Navbar(
             controller: _controller,
             currentPage: _currentPage,
@@ -74,14 +90,9 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut,
                 );
-                setState(() {
-                  _currentPage += 1;
-                });
+                setState(() => _currentPage++);
               } else {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SingUpView()),
-                );
+                _goToSignup(context);
               }
             },
             onPrev: () {
@@ -91,9 +102,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut,
                 );
-                setState(() {
-                  _currentPage -= 1;
-                });
+                setState(() => _currentPage--);
               }
             },
           ),

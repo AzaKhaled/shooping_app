@@ -11,7 +11,7 @@ import 'package:fruits_hub/features/auth/presentation/views/widgets/forgeted_pas
 import 'package:fruits_hub/features/auth/presentation/views/widgets/have_an_account_section.dart';
 import 'package:fruits_hub/features/auth/presentation/views/widgets/or_divider.dart';
 import 'package:fruits_hub/features/auth/presentation/views/widgets/password_field.dart';
-import 'package:fruits_hub/features/auth/presentation/views/widgets/singup_social.dart';
+import 'package:fruits_hub/core/utils/widgets/circler_buttom.dart';
 
 class SigninViewBody extends StatefulWidget {
   const SigninViewBody({super.key});
@@ -41,7 +41,10 @@ class _SigninViewBodyState extends State<SigninViewBody> {
 
                 Text(
                   'Welcome Back!',
-                  style: TextStyles.montserrat700_36.copyWith(fontSize: 28.sp),
+                  style: TextStyles.montserrat700_36.copyWith(
+                    fontSize: 28.sp,
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
                 SizedBox(height: 40.h),
                 CustomTextFormField(
@@ -93,7 +96,6 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                     }
                   },
 
-                
                   text: 'Login',
                 ),
                 SizedBox(height: 18.h),

@@ -17,7 +17,7 @@ class SingUpView extends StatelessWidget {
             AuthRepoImpl(
               firebaseAuthService: FirebaseAuthService(),
               databaseService:
-                  FakeDatabaseService(), // ✅ لو بتستخدم FirestoreService
+                  FakeDatabaseService(), 
             ),
           ),
       child: const Scaffold(
