@@ -19,7 +19,9 @@ class ProductsGrid extends StatelessWidget {
     return BlocBuilder<ProductCubit, ProductState>(
       builder: (context, state) {
         if (state is ProductLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+            child: CircularProgressIndicator(color: Color(0xFFFA7189)),
+          );
         } else if (state is ProductLoaded) {
           return buildGrid(state.products);
         } else if (state is ProductError) {

@@ -19,7 +19,7 @@ class HomeViewBody extends StatelessWidget {
     return Stack(
       children: [
         Padding(
-          padding: EdgeInsets.only(top: 30.h), 
+          padding: EdgeInsets.only(top: 30.h),
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -39,6 +39,7 @@ class HomeViewBody extends StatelessWidget {
                     },
                   ),
                   SizedBox(height: 30.h),
+
                   /// Sort Button
                   CustomRowSorting(
                     onSort: () {
@@ -49,13 +50,31 @@ class HomeViewBody extends StatelessWidget {
 
                   /// Categories
                   CustomAllCategories(searchController: searchController),
-                  SizedBox(height: 30.h),
+                  SizedBox(height: 25.h),
+
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 8.w),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12.r),
+                    ),
+                    clipBehavior: Clip.hardEdge,
+                    child: Image.asset(
+                      'assets/images/myshop.jpg',
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      height: 150.h,
+                    ),
+                  ),
+
+                  SizedBox(height: 25.h),
 
                   /// Products
                   BlocBuilder<ProductCubit, ProductState>(
                     builder: (context, state) {
                       if (state is ProductLoading) {
-                        return const CircularProgressIndicator();
+                        return const CircularProgressIndicator(
+                          color:  Color(0xFFFA7189),
+                        );
                       } else if (state is ProductLoaded) {
                         return ProductsGrid(products: state.products);
                       } else if (state is ProductError) {

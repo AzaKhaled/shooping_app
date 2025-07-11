@@ -26,9 +26,9 @@ class SettingViewBody extends StatelessWidget {
               title: Text(s.changeTheme),
               secondary: Icon(isDark ? Icons.dark_mode : Icons.light_mode),
               value: isDark,
-              activeColor: Colors.green, // ✅ لون السويتش وهو ON (الدائرة)
+              activeColor: Colors.green, 
               activeTrackColor:
-                  Colors.green.shade200, // ✅ لون المسار خلف السويتش
+                  Colors.green.shade200, 
               onChanged: (_) {
                 context.read<ThemeCubit>().toggleTheme();
               },

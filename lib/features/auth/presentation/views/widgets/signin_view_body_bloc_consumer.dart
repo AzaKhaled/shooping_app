@@ -37,6 +37,7 @@ class SignInViewBodyBlocConsumer extends StatelessWidget {
       builder: (context, state) {
         return CustomProgressHUD(
           isLoading: state is SigninLoading ? true : false,
+
           child: SigninViewBody(),
         );
       },

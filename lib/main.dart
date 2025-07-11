@@ -57,7 +57,10 @@ class _ECommerceAppState extends State<ECommerceApp> {
   Widget build(BuildContext context) {
     if (!_isThemeLoaded) {
       return const MaterialApp(
-        home: Scaffold(body: Center(child: CircularProgressIndicator())),
+        home: Scaffold(body: Center(child: CircularProgressIndicator(
+      color:  Color(0xFFFA7189),
+
+        ))),
       );
     }
 

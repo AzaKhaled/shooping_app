@@ -51,7 +51,10 @@ class CustomAllCategories extends StatelessWidget {
             ),
           );
         } else if (state is CategoryLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator(
+                                      color:  Color(0xFFFA7189),
+
+          ));
         } else if (state is CategoryError) {
           return Center(child: Text(state.message));
         } else {

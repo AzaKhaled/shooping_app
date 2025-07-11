@@ -87,7 +87,7 @@ class AddtocardViewBody extends StatelessWidget {
                                       "\$ ${item.product.price.toStringAsFixed(2)}",
                                   style: TextStyles.montserrat500_12_grey
                                       .copyWith(
-                                     color: Colors.green[700],
+                                        color: Colors.green[700],
 
                                         fontSize: 10.sp,
                                       ),
@@ -105,8 +105,7 @@ class AddtocardViewBody extends StatelessWidget {
                                   style: TextStyles.montserrat500_12_grey
                                       .copyWith(
                                         fontSize: 10.sp,
-                                color: Colors.green[700],
-
+                                        color: Colors.green[700],
                                       ),
                                 ),
                                 TextSpan(
@@ -127,7 +126,6 @@ class AddtocardViewBody extends StatelessWidget {
                                       .copyWith(
                                         fontSize: 10.sp,
                                         color: Colors.green[700],
-
                                       ),
                                 ),
                                 TextSpan(
@@ -135,7 +133,7 @@ class AddtocardViewBody extends StatelessWidget {
                                       "\$ ${(item.product.price * item.quantity).toStringAsFixed(2)}",
                                   style: TextStyles.montserrat500_12_grey
                                       .copyWith(
-                                            color: Colors.green[700],
+                                        color: Colors.green[700],
 
                                         fontSize: 10.sp,
                                       ),
@@ -155,10 +153,10 @@ class AddtocardViewBody extends StatelessWidget {
                             item.product,
                           );
                           buildSnackBarMessage(
-            context:context, 
-            message:"Deleted successfully!",
-  backgroundColor: Colors.red,);
-
+                            context: context,
+                            message: "Deleted successfully!",
+                            backgroundColor: Colors.red,
+                          );
                         },
                       ),
                     ),
@@ -196,8 +194,7 @@ class AddtocardViewBody extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 12.sp,
                       fontWeight: FontWeight.bold,
-                   color: Colors.green[700],
-
+                      color: Colors.green[700],
                     ),
                   ),
                 ],

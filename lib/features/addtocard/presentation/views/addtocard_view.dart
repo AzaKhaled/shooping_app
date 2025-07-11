@@ -8,12 +8,14 @@ class AddtocardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(70.h),
-        child: const CustomHomeAppbar(),
+    return SafeArea(
+      child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(70.h),
+          child: const CustomHomeAppbar(),
+        ),
+        body: AddtocardViewBody(),
       ),
-      body: SafeArea(child: AddtocardViewBody()),
     );
   }
 }

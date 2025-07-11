@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_hub/features/favorite/presentation/cubits/favorite/favorite_cubit.dart';
 import 'package:fruits_hub/features/home/data/repos/models/products_models.dart';
 import 'package:fruits_hub/features/home/presentation/views/widget/product_details_view.dart';
@@ -13,7 +14,8 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isOutOfStock = product.stock == 0;
-
+    final discountedPrice =
+        product.price * (1 - product.discountPercentage / 100);
     return InkWell(
       onTap:
           isOutOfStock
@@ -130,18 +132,45 @@ class ProductCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        '\$ ${product.price.toStringAsFixed(2)}',
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
-                          color: isOutOfStock ? Colors.grey : Colors.green[700],
+                      Expanded(
+                        child: Text(
+                          '\$${discountedPrice.toStringAsFixed(2)}',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green[700],
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      SizedBox(width: 4.w),
+                      Flexible(
+                        child: Text(
+                          '\$${product.price.toStringAsFixed(2)}',
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey,
+                            decoration: TextDecoration.lineThrough,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      SizedBox(width: 4.w),
+                      Flexible(
+                        child: Text(
+                          '-${product.discountPercentage.toStringAsFixed(0)}%',
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Color(0xffFA7189),
+                            fontWeight: FontWeight.bold,
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],
                   ),
+
                   const SizedBox(height: 4),
                   Row(
                     children: [
