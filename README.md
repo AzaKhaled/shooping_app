@@ -94,7 +94,7 @@ This layout helps keep features self-contained and easier to test.
 ```bash
 # Clone
 git clone https://github.com/AzaKhaled/shooping_app.git
-cd Medical_Service 
+cd shooping_app
 
 # Install
 flutter pub get
