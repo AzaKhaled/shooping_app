@@ -34,7 +34,7 @@
 
 |               Home                     |              Favorite                       |                cart               |
 |:--------------------------------------:|:-------------------------------------------:|:------------------------------------:|
-| ![Home](assets/images/home.jpeg)       | ![appointment](assets/images/favorite.jpg)  | ![cart](assets/images/card.jpg)|
+| ![Home](assets/images/home.jpg)       | ![appointment](assets/images/favorite.jpg)  | ![cart](assets/images/card.jpg)|
 
 ---
 
