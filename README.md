@@ -1,4 +1,4 @@
-# 🩺 Shopping App
+#  Shopping App
 
 
 ---
